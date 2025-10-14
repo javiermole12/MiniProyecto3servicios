@@ -11,9 +11,10 @@ Descargando el proyecto de GitHub:
 -Abrir Docker Desktop  
 -Descargar el proyecto y decomprimirlo  
 -En Visual Studio Code, abrir una terminal e introducir los siguientes comandos:  
-  -"docker-compose up -d" (Tardara un rato)  
-  -"docker-compose exec app bash"   
-  -"composer install"  
+    -"docker-compose up -d" (Tardara un rato)  
+    -"docker-compose exec app bash"   
+    -"composer install"  
+    
 Con esto se crean la imagen y contenedores, y se arrancan, y se instala composer para que la aplicacion pueda funcionar.
 Se accede a la pagina web en "localhost:8080"
 
