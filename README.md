@@ -17,4 +17,14 @@ Descargando el proyecto de GitHub:
 Con esto se crean la imagen y contenedores, y se arrancan, y se instala composer para que la aplicacion pueda funcionar.
 Se accede a la pagina web en "localhost:8080"
 
+Las diferentes credenciales son: 
+   EMPLEADOS
+      - usuario1: titoamancio@inditex.com
+      - usuario2: titofrancis@viscofan.com
+      - contraseña: 123456
+   CLIENTES
+      - cliente1: zara@zara.com
+      - cliente2: eroski@eroski.com
+      - contraseña: 123456
+
 
