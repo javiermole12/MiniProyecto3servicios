@@ -20,4 +20,5 @@ Route::get('/clientes', [EmpleadosController::class, 'listaClientes'])->name('cl
 Route::get('/empresas', [EmpleadosController::class, 'listaEmpresas'])->name('empresas.lista');
 
 // Logout
-Route::get('/logout', [EmpleadosController::class, 'logout'])->name('logout');
+Route::get('/logoutEmpleado', [EmpleadosController::class, 'logoutEmpleado'])->name('logout_empleado');
+Route::get('/logoutCliente', [EmpleadosController::class, 'logoutCliente'])->name('logout_cliente');

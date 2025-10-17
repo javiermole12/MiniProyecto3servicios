@@ -28,6 +28,7 @@
                             <label for="password" class="form-label">Contraseña</label>
                             <input type="password" class="form-control" name="password" id="password" required>
                         </div>
+                        <a class="btn btn-danger w-100" href="/">Atras</a>
                         <button type="submit" class="btn btn-success w-100">Entrar</button>
                     </form>
 

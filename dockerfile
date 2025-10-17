@@ -1,21 +1,30 @@
-FROM php:8.2-fpm
+# Etapa 1: builder para Composer
+FROM composer:2 AS builder
+WORKDIR /app
 
-# Instalar dependencias necesarias
-RUN apt-get update && apt-get install -y \
-    git unzip curl && \
-    docker-php-ext-install pdo pdo_mysql
+RUN apk add --no-cache git unzip curl
 
-# Instalar Composer globalmente
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# Establecer el directorio de trabajo
-WORKDIR /var/www/nombre_del_proyecto
-
-# Copiar el código de Laravel dentro del contenedor
-COPY ./laravel/nombre_del_proyecto /var/www/nombre_del_proyecto
+# Copiar todo el código Laravel
+COPY ./laravel/nombre_del_proyecto /app
 
 # Instalar dependencias de Laravel
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-# Permisos (evita problemas con el almacenamiento y cache)
+# Etapa 2: imagen final con PHP-FPM (Debian)
+FROM php:8.2-fpm
+
+# Instalar extensiones PHP necesarias
+RUN apt-get update && apt-get install -y git unzip curl && \
+    docker-php-ext-install pdo pdo_mysql
+
+# Establecer directorio de trabajo
+WORKDIR /var/www/nombre_del_proyecto
+
+# Copiar todo desde el builder
+COPY --from=builder /app /var/www/nombre_del_proyecto
+
+# Permisos
 RUN chown -R www-data:www-data /var/www/nombre_del_proyecto/storage /var/www/nombre_del_proyecto/bootstrap/cache
+
+EXPOSE 9000
+CMD ["php-fpm"]

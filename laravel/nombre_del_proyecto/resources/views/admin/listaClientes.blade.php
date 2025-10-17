@@ -10,7 +10,7 @@
 <div class="container mt-5">
     <div class="row">
         <h2 class="col-9 mb-4">Clientes</h2>
-        <a href="/logout" class="col-3 btn btn-danger">Cerrar Sesion</a>
+        <a href="/logoutEmpleado" class="col-3 btn btn-danger">Cerrar Sesion</a>
     </div>
     
     <table class="table table-striped">

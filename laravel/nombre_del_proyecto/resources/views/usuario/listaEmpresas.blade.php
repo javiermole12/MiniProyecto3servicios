@@ -8,6 +8,10 @@
 </head>
 <body>
 <div class="container mt-5">
+    <div class="row">
+        <h2 class="col-9 mb-4">Clientes</h2>
+        <a href="/logoutCliente" class="col-3 btn btn-danger">Cerrar Sesion</a>
+    </div>
     <h2 class="mb-4">Empresas</h2>
     <table class="table table-striped">
         <thead>
@@ -20,7 +24,7 @@
             @foreach($empresas as $empresa)
                 <tr>
                     <td>{{ $empresa->id }}</td>
-                    <td>{{ $cliente->nombre }}</td>
+                    <td>{{ $empresa->nombre }}</td>
                 </tr>
             @endforeach
         </tbody>

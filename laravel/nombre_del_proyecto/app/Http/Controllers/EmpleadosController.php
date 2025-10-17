@@ -88,9 +88,14 @@ class EmpleadosController extends Controller
     }
 
     // Logout (empleado o cliente)
-    public function logout()
+    public function logoutEmpleado()
     {
         Session::flush();
         return redirect()->route('empleado.login');
+    }
+    public function logoutCliente()
+    {
+        Session::flush();
+        return redirect()->route('cliente.login');
     }
 }
